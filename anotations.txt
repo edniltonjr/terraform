@@ -1,0 +1,93 @@
+[TERRAFORM]
+
+- Provisionar Infraestrutura
+- Infraestrutura as Code
+- Ferramenta Opensource
+- Hashcorp (Golang)
+- Provisionar -> Capturar todos os compomentes da Infraestrutura
+
+- IDEMPOTENCIA
+    - Não atualizar coisas duplicadas
+    - Garante que o recurso não vai ser modificado mais do que uma vez
+    - Trabalha de modo Declarativo x Imperativo
+
+- TERRAFORM X ANSSIBLE
+    - TERRAFORM: Provisionar Infraestrutura
+    - Anssible: Gerenciamento e automação de configurações / Instalações
+
+- GERENCIAMENTO DE ESTADO
+    - Para alternar algo ele destroi para executar o necessário
+    - Necessário ter um estado atual 
+    - Arquivo state muito importante 
+
+- WRITE, PLAN, APPLY
+(Escreva, planeje e aplique)
+
+(BLOCO)  (PROVIDER)     (TIPO)
+resource   "LOCAL_______ FILE"
+
+- CICLO TERRAFORM 
+
+1- INICIALIZAR O TERRAFORM 
+
+terraform init 
+
+2- VERIFICAR O PLANO DE MUDANÇA
+
+terraform plan 
+
+3- TERRAFORMAR
+
+terraform apply
+
+EXTRAS:
+    - terraform fmt --recursive 
+    - terraform apply -target=recurso.nome 
+
+
+- VARIABLES
+    - Uso de Variaveis
+        1- Criar uma associação para uma variavel sem inicialização, esta sendo vinculada a partir de um input.
+        [var.conteudo]
+        [INPUT] - Input para passagem do valor do conteúdo.
+
+        2- Utilização de um arquivo variables.tf com tfvars.tf;
+        variables.tf iniciamos e declaramos as variaveis, tfvars.tf passamos o valor das variaveis
+
+        3- Uso de variaveis TF_VAR_conteudo, exportando as variaveis, com seus respectivos valores
+        exemplo de uso: EXPORT TF_VAR_CONTEUDO ='conteudo aqui'
+
+        4- Passagem de variaveis no proprio comando ao TERRAFORMAR
+        exemplo de uso: terraform apply --var "conteudo"="xpto"
+
+        5 - Passagem do arquivo de variaveis diferente de variables.tf
+        exemplo de uso: terraform apply --var-file xpto.tfvars 
+
+- OUTPUTS
+    - VIsualização de informações 
+    - Uso importante na criação de modulos
+
+- DATA SOURCE
+    - Todo proviuder disponibiliza um data source 
+    - Ler algo que jã existe 
+
+- MODULOS 
+    - Depende Inf de outro módulo
+    - terraform init para reconhecer módulos
+    - Diminuir quantidade de código
+
+[Conceitos de VPC na AWS]
+
+- Criar uma própria rede
+
+VPC - VIRTUAL PRIVATE CLOUD 
+
+[1] - Criar um usuário no IAM, logar com o usuário na URL gerada;
+[2] - Configurar AWS CLI;
+[3] - Criação de VPC;
+[4] - Criação de Subnets;
+[5] - Criação de Internet Gateway / Route Tables;
+[6] - Criando Security Group 
+[7] - Criando Roles e Policies 
+
+
